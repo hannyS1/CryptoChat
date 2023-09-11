@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  
+  db:
+    image: postgres:12.4-alpine
+    environment:
+      POSTGRES_DB: crypto_chat
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_pwd
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/db:/var/lib/postgresql/data
+

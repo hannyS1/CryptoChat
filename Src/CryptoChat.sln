@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Host", "CryptoChat.Host\CryptoChat.Host.csproj", "{62A5599C-6AC3-44B8-A0B2-C42A22D1CA52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Entities", "CryptoChat.Entities\CryptoChat.Entities.csproj", "{C968B097-1C5B-49B8-92EE-C9D9A62A3C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Api.Contracts", "CryptoChat.Api.Contracts\CryptoChat.Api.Contracts.csproj", "{94E86C6B-9D66-4C52-9D30-9CE4D60D64AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.AppServices.Contracts", "CryptoChat.AppServices.Contracts\CryptoChat.AppServices.Contracts.csproj", "{81C6DBA9-B217-4D56-9EBD-151E6759B28D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.AppServices", "CryptoChat.AppServices\CryptoChat.AppServices.csproj", "{DA2A2011-5FF3-4D0A-A69B-B3FECB407B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Common", "CryptoChat.Common\CryptoChat.Common.csproj", "{C650F3A5-3687-4E96-9DAB-B74A226598DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Common.Contracts", "CryptoChat.Common.Contracts\CryptoChat.Common.Contracts.csproj", "{2A4458E3-9672-4F8A-98CA-E581F0FB269C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Database", "CryptoChat.Database\CryptoChat.Database.csproj", "{5996051C-404A-4AAB-96C7-32BBDED4AC7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62A5599C-6AC3-44B8-A0B2-C42A22D1CA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A5599C-6AC3-44B8-A0B2-C42A22D1CA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A5599C-6AC3-44B8-A0B2-C42A22D1CA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A5599C-6AC3-44B8-A0B2-C42A22D1CA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C968B097-1C5B-49B8-92EE-C9D9A62A3C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C968B097-1C5B-49B8-92EE-C9D9A62A3C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C968B097-1C5B-49B8-92EE-C9D9A62A3C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C968B097-1C5B-49B8-92EE-C9D9A62A3C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E86C6B-9D66-4C52-9D30-9CE4D60D64AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E86C6B-9D66-4C52-9D30-9CE4D60D64AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E86C6B-9D66-4C52-9D30-9CE4D60D64AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E86C6B-9D66-4C52-9D30-9CE4D60D64AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C6DBA9-B217-4D56-9EBD-151E6759B28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C6DBA9-B217-4D56-9EBD-151E6759B28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C6DBA9-B217-4D56-9EBD-151E6759B28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C6DBA9-B217-4D56-9EBD-151E6759B28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2A2011-5FF3-4D0A-A69B-B3FECB407B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2A2011-5FF3-4D0A-A69B-B3FECB407B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2A2011-5FF3-4D0A-A69B-B3FECB407B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2A2011-5FF3-4D0A-A69B-B3FECB407B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C650F3A5-3687-4E96-9DAB-B74A226598DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C650F3A5-3687-4E96-9DAB-B74A226598DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C650F3A5-3687-4E96-9DAB-B74A226598DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C650F3A5-3687-4E96-9DAB-B74A226598DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4458E3-9672-4F8A-98CA-E581F0FB269C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4458E3-9672-4F8A-98CA-E581F0FB269C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4458E3-9672-4F8A-98CA-E581F0FB269C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4458E3-9672-4F8A-98CA-E581F0FB269C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
