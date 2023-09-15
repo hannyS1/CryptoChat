@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Common.Contracts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Database", "CryptoChat.Database\CryptoChat.Database.csproj", "{5996051C-404A-4AAB-96C7-32BBDED4AC7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Frontend", "CryptoChat.Frontend\CryptoChat.Frontend.csproj", "{06719C42-99A3-4906-830B-977E0D7532DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5996051C-404A-4AAB-96C7-32BBDED4AC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06719C42-99A3-4906-830B-977E0D7532DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06719C42-99A3-4906-830B-977E0D7532DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06719C42-99A3-4906-830B-977E0D7532DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06719C42-99A3-4906-830B-977E0D7532DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
