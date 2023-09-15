@@ -4,7 +4,6 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .idea/
-application.db
 application.db-shm
 application.db-wal
 identifier.sqlite
