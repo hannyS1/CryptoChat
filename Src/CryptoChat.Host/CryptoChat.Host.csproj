@@ -14,15 +14,21 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Update="appsettings.Development.json">
-        <DependentUpon>appsettings.json</DependentUpon>
-      </Content>
-    </ItemGroup>
-
 
     <ItemGroup>
+      <ProjectReference Include="..\CryptoChat.Api.Contracts\CryptoChat.Api.Contracts.csproj" />
+      <ProjectReference Include="..\CryptoChat.AppServices\CryptoChat.AppServices.csproj" />
+      <ProjectReference Include="..\CryptoChat.Common\CryptoChat.Common.csproj" />
       <ProjectReference Include="..\CryptoChat.Database\CryptoChat.Database.csproj" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Content Remove="appsettings.Development.json" />
+    </ItemGroup>
+
+
+
+
 
 </Project>

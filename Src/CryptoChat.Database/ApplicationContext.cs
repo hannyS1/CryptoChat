@@ -1,3 +1,4 @@
+using System.Reflection;
 using CryptoChat.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,21 +9,13 @@ public class ApplicationContext : DbContext
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options){}
     
     public DbSet<User> Users { get; set; }
-
-    public string DbPath => GetDbPath();
+    public DbSet<Message> Messages { get; set; }
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<UserRoom> UsersRooms { get; set; }
     
-    public ApplicationContext()
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlite($"Data Source={DbPath}");
-
-    private string GetDbPath()
-    {
-        var folder = Environment.SpecialFolder.LocalApplicationData;
-        var path = Environment.GetFolderPath(folder);
-        return Path.Join(path, "application.db"); 
-    }
-
 }

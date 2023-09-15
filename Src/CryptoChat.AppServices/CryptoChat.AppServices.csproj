@@ -5,6 +5,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CryptoChat.Api.Contracts\CryptoChat.Api.Contracts.csproj" />
+      <ProjectReference Include="..\CryptoChat.AppServices.Contracts\CryptoChat.AppServices.Contracts.csproj" />
+      <ProjectReference Include="..\CryptoChat.Common.Contracts\CryptoChat.Common.Contracts.csproj" />
+      <ProjectReference Include="..\CryptoChat.Database\CryptoChat.Database.csproj" />
+      <ProjectReference Include="..\CryptoChat.Entities\CryptoChat.Entities.csproj" />
+    </ItemGroup>
     
 
 </Project>

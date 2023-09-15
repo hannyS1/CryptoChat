@@ -1,0 +1,50 @@
+﻿GET {{backendAddr}}/api/users/me
+Authorization: Bearer {{user1Token}}
+###
+
+GET {{backendAddr}}/api/users/me
+Authorization: Bearer {{user2Token}}
+###
+
+GET {{backendAddr}}/api/users
+Authorization: Bearer {{user1Token}}
+###
+
+GET {{backendAddr}}/api/users/me
+Authorization: Bearer {{user3Token}}
+###
+
+POST {{backendAddr}}/api/rooms
+Content-Type: application/json
+Authorization: Bearer {{user3Token}}
+
+{
+  "userId": 3
+}
+###
+
+POST {{backendAddr}}/api/rooms/1/send-message
+Content-Type: application/json
+Authorization: Bearer {{user1Token}}
+
+{
+  "text": "Здарова второй"
+}
+###
+
+POST {{backendAddr}}/api/rooms/1/send-message
+Content-Type: application/json
+Authorization: Bearer {{user2Token}}
+
+{
+  "text": "Здарова первый"
+}
+###
+
+GET {{backendAddr}}/api/rooms/1/messages
+Authorization: Bearer {{user1Token}}
+###
+
+GET {{backendAddr}}/api/rooms/1/messages
+Authorization: Bearer {{user2Token}}
+###
