@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CryptoChat.AppServices.Services;
 
-public class MessageDeliveryService : IMessageDeliveryService
+internal class MessageDeliveryService : IMessageDeliveryService
 {
     private readonly IMessageService _messageService;
     private readonly ApplicationContext _dbContext;
@@ -17,12 +17,12 @@ public class MessageDeliveryService : IMessageDeliveryService
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
     
-    public async Task<MessageDto> SendMessage(SendMessageRequestDto sendMessageRequestDto, int userId, int roomId)
+    public async Task<MessageDto> SendMessage(SendMessageRequestDto sendMessageRequestDto, int fromUserId, int roomId)
     {
         var room = await _dbContext.Rooms.Where(r => r.Id == roomId).FirstAsync();
         if (room == null)
             throw new ChatException("incorrect room id");
             
-        return await _messageService.Create(roomId, userId, sendMessageRequestDto.Text);
+        return await _messageService.Create(roomId, fromUserId, sendMessageRequestDto.Text);
     }
 }
