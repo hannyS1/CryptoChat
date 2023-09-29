@@ -19,4 +19,9 @@ public class Message
 
     public User User { get; set; }
     public Room Room { get; set; }
+
+    public override string ToString()
+    {
+        return $"{User.Name}: {Text}";
+    }
 }

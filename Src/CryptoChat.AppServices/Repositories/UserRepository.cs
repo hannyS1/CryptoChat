@@ -23,6 +23,6 @@ internal class UserRepository : GenericRepository<User>, IUserRepository
 
     public async Task<List<User>> GetAllExceptOne(int userId)
     {
-        return await Items.Where(u => u.Id != userId).ToListAsync();
+        return await Items.Include(u => u.AllowedCategory).Where(u => u.Id != userId).ToListAsync();
     }
 }

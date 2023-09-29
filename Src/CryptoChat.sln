@@ -18,6 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Database", "Cryp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoChat.Frontend", "CryptoChat.Frontend\CryptoChat.Frontend.csproj", "{06719C42-99A3-4906-830B-977E0D7532DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagement.Common", "WarehouseManagement.Common\WarehouseManagement.Common.csproj", "{5067A166-08BD-4F9D-AB28-628F338778D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagement.ChatModule", "WarehouseManagement.ChatModule\WarehouseManagement.ChatModule.csproj", "{CAE3DD09-9E3D-458C-9B9B-9B1DCA27AA11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagement.WarehouseModule", "WarehouseManagement.WarehouseModule\WarehouseManagement.WarehouseModule.csproj", "{A65FD2C6-7E61-49B3-B9DB-0D09F9C4A729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagement.FeatureToggleModule", "WarehouseManagement.FeatureToggleModule\WarehouseManagement.FeatureToggleModule.csproj", "{E035561A-7553-4E1A-94DE-B3BC6C5EBFBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +68,22 @@ Global
 		{06719C42-99A3-4906-830B-977E0D7532DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06719C42-99A3-4906-830B-977E0D7532DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06719C42-99A3-4906-830B-977E0D7532DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5067A166-08BD-4F9D-AB28-628F338778D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5067A166-08BD-4F9D-AB28-628F338778D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5067A166-08BD-4F9D-AB28-628F338778D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5067A166-08BD-4F9D-AB28-628F338778D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAE3DD09-9E3D-458C-9B9B-9B1DCA27AA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE3DD09-9E3D-458C-9B9B-9B1DCA27AA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE3DD09-9E3D-458C-9B9B-9B1DCA27AA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE3DD09-9E3D-458C-9B9B-9B1DCA27AA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65FD2C6-7E61-49B3-B9DB-0D09F9C4A729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65FD2C6-7E61-49B3-B9DB-0D09F9C4A729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65FD2C6-7E61-49B3-B9DB-0D09F9C4A729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65FD2C6-7E61-49B3-B9DB-0D09F9C4A729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E035561A-7553-4E1A-94DE-B3BC6C5EBFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E035561A-7553-4E1A-94DE-B3BC6C5EBFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E035561A-7553-4E1A-94DE-B3BC6C5EBFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E035561A-7553-4E1A-94DE-B3BC6C5EBFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

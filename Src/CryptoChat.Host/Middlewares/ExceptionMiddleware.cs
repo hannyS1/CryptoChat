@@ -31,7 +31,7 @@ public class ExceptionMiddleware
             var result = ExceptionRouter.Route(e);
             context.Response.StatusCode = result.StatusCode;
             context.Response.ContentType = result.ContentType;
-            await context.Response.WriteAsync(JsonSerializer.Serialize(new {detail = e.Message}));
+            await context.Response.WriteAsync(e.Message);
         }
     }
 }

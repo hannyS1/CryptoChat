@@ -1,0 +1,38 @@
+﻿@page "/users"
+@using CryptoChat.Frontend.Services
+@using CryptoChat.Api.Contracts.Data
+
+@inject UserService UserService;
+
+<PageTitle>Пользователи</PageTitle>
+
+<h1>Зарегистрированные пользователи</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Имя</th>
+        <th scope="col">Доступная категория</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Users)
+    {
+        <tr id="user-@user.Id">
+            <th scope="row">@user.Name</th>
+            <td>@user.AllowedCategory.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    
+    List<UserDto> Users = new List<UserDto>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Users = await UserService.GetUsers();
+    }
+
+}    

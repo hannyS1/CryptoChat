@@ -14,7 +14,7 @@ GET {{backendAddr}}/api/users/me
 Authorization: Bearer {{user3Token}}
 ###
 
-POST {{backendAddr}}/api/rooms
+POST {{backendAddr}}/api/chat/rooms
 Content-Type: application/json
 Authorization: Bearer {{user3Token}}
 
@@ -23,7 +23,7 @@ Authorization: Bearer {{user3Token}}
 }
 ###
 
-POST {{backendAddr}}/api/rooms/1/send-message
+POST {{backendAddr}}/api/chat/rooms/1/send-message
 Content-Type: application/json
 Authorization: Bearer {{user1Token}}
 
@@ -32,7 +32,7 @@ Authorization: Bearer {{user1Token}}
 }
 ###
 
-POST {{backendAddr}}/api/rooms/1/send-message
+POST {{backendAddr}}/api/chat/rooms/1/send-message
 Content-Type: application/json
 Authorization: Bearer {{user2Token}}
 
@@ -41,10 +41,14 @@ Authorization: Bearer {{user2Token}}
 }
 ###
 
-GET {{backendAddr}}/api/rooms/1/messages
+GET {{backendAddr}}/api/chat/rooms/1/messages
 Authorization: Bearer {{user1Token}}
 ###
 
-GET {{backendAddr}}/api/rooms/1/messages
+GET {{backendAddr}}/api/chat/rooms/1/messages
 Authorization: Bearer {{user2Token}}
+###
+
+GET {{backendAddr}}/api/chat/rooms
+Authorization: Bearer {{user1Token}}
 ###

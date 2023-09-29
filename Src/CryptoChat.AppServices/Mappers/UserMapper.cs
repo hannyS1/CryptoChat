@@ -12,6 +12,11 @@ public class UserMapper : IUserMapper
         {
             Id = user.Id,
             Name = user.Name,
+            AllowedCategory = new WareHouseItemCategoryDto
+            {
+                Id = user.AllowedCategory != null ? user.AllowedCategoryId : 0, 
+                Name = user.AllowedCategory != null ? user.AllowedCategory.Name : ""
+            }
         };
     }
 }

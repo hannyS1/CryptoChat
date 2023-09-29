@@ -1,7 +1,11 @@
+using System.Reflection;
 using CryptoChat.AppServices.Infrastructure;
 using CryptoChat.Common.Infrastructure;
 using CryptoChat.Database.Infrastructure;
+using CryptoChat.Entities;
+using CryptoChat.Host.Extensions;
 using CryptoChat.Host.Middlewares;
+using DotNetEd.CoreAdmin;
 using Microsoft.OpenApi.Models;
 
 namespace CryptoChat.Host.Infrastructure;
@@ -17,7 +21,7 @@ public class Startup
     
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers();
+        services.AddControllers().AddModulesControllers(_configuration);
         services.AddHttpContextAccessor();
         services.AddSwaggerGen(c =>
         {
@@ -35,6 +39,7 @@ public class Startup
         services.AddEntitiesWithEfSqlite(_configuration);
         services.AddJwtAuthentication(_configuration);
         services.AddPasswordHasher();
+        services.AddCoreAdmin(new CoreAdminOptions { IgnoreEntityTypes = new List<Type>() { typeof(UserRoom), typeof(Room), typeof(Message) }} );
     }
     
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,17 +49,24 @@ public class Startup
         
         app.UseHttpsRedirection();
 
+        app.UseStaticFiles();
+
         app.UseRouting();
 
         app.UseSwagger();
         app.UseSwaggerUI();
 
+        app.UseCors(builder => builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .WithExposedHeaders("*"));
+        
         app.UseAuthentication();
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapControllers();
+            endpoints.MapDefaultControllerRoute();
         });
     }
 }

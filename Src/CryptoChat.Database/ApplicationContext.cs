@@ -12,10 +12,18 @@ public class ApplicationContext : DbContext
     public DbSet<Message> Messages { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<UserRoom> UsersRooms { get; set; }
+    public DbSet<WarehouseItem> WarehouseItems { get; set; }
+    public DbSet<WarehouseItemCategory> WarehouseItemCategories { get; set; }
+    public DbSet<FeatureToggle> FeatureToggles { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        modelBuilder
+            .Entity<User>()
+            .HasMany(u => u.Rooms)
+            .WithMany(r => r.Users)
+            .UsingEntity<UserRoom>();
     }
 }

@@ -16,5 +16,4 @@ public class UserRoom
     
     public User User { get; set; }
     public Room Room { get; set; }
-    
 }

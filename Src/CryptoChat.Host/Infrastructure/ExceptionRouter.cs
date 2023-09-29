@@ -9,7 +9,7 @@ public static class ExceptionRouter
     {
         if (exception is ChatException)
         {
-            return new ApiResult { StatusCode = StatusCodes.Status400BadRequest, ContentType = "application/json" };
+            return new ApiResult { StatusCode = StatusCodes.Status400BadRequest, ContentType = "text" };
         }
 
         throw exception;

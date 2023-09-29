@@ -1,0 +1,72 @@
+﻿@page "/warehouse"
+@using CryptoChat.Frontend.Services
+@using CryptoChat.Entities
+
+@inject WarehouseService WarehouseService;
+
+<PageTitle>Вещи</PageTitle>
+
+<h1>Доступные позиции</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Наименование</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Новое количество</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Items)
+    {
+        <tr id="item-@item.Id">
+            <th scope="row">@item.Name</th>
+            <td>@item.Category</td>
+            <td>@item.Count</td>
+            <td>
+                <input type="text" @bind="@item.NewCount">
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" @onclick="async() => await UpdateItem(item.Id, item.NewCount)">Сохранить</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+
+    class EditableItem : WarehouseItem
+    {
+        public int NewCount { get; set; }
+    }
+    
+    List<EditableItem> Items = new List<EditableItem>();
+
+    private async Task<List<EditableItem>> GetItems()
+    {
+        var items = await WarehouseService.GetItems();
+        return items.Select(item => new EditableItem()
+        {
+            Id = item.Id,
+            Name = item.Name,
+            Category = item.Category,
+            CategoryId = item.CategoryId,
+            Count = item.Count,
+            NewCount = 0
+        }).ToList();
+    }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Items = await GetItems();
+    }
+
+    protected async Task UpdateItem(int itemId, int count)
+    {
+        await WarehouseService.UpdateItemCount(itemId, count);
+        Items = await GetItems();
+    }
+
+}    

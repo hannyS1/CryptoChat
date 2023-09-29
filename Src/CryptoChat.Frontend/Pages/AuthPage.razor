@@ -1,0 +1,71 @@
+﻿@page "/auth"
+@using CryptoChat.Api.Contracts.Data
+@using CryptoChat.Frontend.Common
+@using CryptoChat.Frontend.Services
+@using Blazored.LocalStorage
+
+@inject IJSRuntime JsRuntime;
+@inject AuthenticateService AuthService;
+@inject AuthTokenProvider AuthTokenProvider;
+@inject NavigationManager NavigationManager;
+@inject ILocalStorageService LocalStorageService;
+
+<PageTitle>Users</PageTitle>
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Вход</h2>
+              <p class="text-white-50 mb-5">Введите логин и пароль</p>
+
+              <EditForm Model=@loginFormDto OnSubmit=@ValidFormSubmitted>
+                <div class="form-outline form-white mb-4">
+                  <InputText @bind-Value=loginFormDto.Username type="text" id="Username" class="form-control form-control-lg" />
+                  <label class="form-label" for="Username">Email</label>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <InputText @bind-Value=loginFormDto.Password type="password" id="Password" class="form-control form-control-lg" />
+                  <label class="form-label" for="Password">Пароль</label>
+                </div>
+              
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Войти</button>
+              </EditForm>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+@code {
+
+    LoginPasswordAuthRequestDto loginFormDto = new LoginPasswordAuthRequestDto();
+  
+    async void ValidFormSubmitted(EditContext context)
+    {
+      try
+      {
+        var tokenDto = await AuthService.Login(loginFormDto.Username, loginFormDto.Password);
+        await AuthTokenProvider.SetToken(tokenDto.AccessToken);
+      }
+      catch (ApiException e)
+      {
+        await JsRuntime.InvokeVoidAsync("alert", e.Message);
+        return;
+      }
+      var currentUser = await AuthService.GetMyselfInfo();
+      await LocalStorageService.SetItemAsStringAsync("username", currentUser.Name);
+      await LocalStorageService.SetItemAsStringAsync("userId", currentUser.Id.ToString());
+      NavigationManager.NavigateTo("", true);
+    }
+}

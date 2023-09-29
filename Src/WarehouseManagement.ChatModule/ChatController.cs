@@ -1,21 +1,23 @@
 ﻿using CryptoChat.Api.Contracts.Data;
 using CryptoChat.Api.Contracts.WebRoutes;
 using CryptoChat.AppServices.Contracts.Services;
-using CryptoChat.Host.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WarehouseManagement.Common.Extensions;
 
-namespace CryptoChat.Host.Controllers;
+namespace WarehouseManagement.ChatModule;
 
-[Route(RoomControllerWebRoutes.BasePath)]
-public class RoomController : Controller
+[ApiController]
+[Route(ChatControllerWebRoutes.BasePath)]
+public class ChatController : Controller
 {
     private readonly HttpContext _httpContext;
     private readonly IMessageService _messageService;
     private readonly IRoomService _roomService;
     private readonly IMessageDeliveryService _messageDeliveryService;
     
-    public RoomController(
+    public ChatController(
         IHttpContextAccessor httpContextAccessor, 
         IMessageService messageService, 
         IRoomService roomService, 
@@ -29,7 +31,15 @@ public class RoomController : Controller
     }
 
     [Authorize]
-    [HttpGet(RoomControllerWebRoutes.GetMessagesFromRoom)]
+    [HttpGet(ChatControllerWebRoutes.GetMyRooms)]
+    public async Task<ActionResult<List<RoomViewDto>>> GetMyRooms()
+    {
+        var currentUserId = _httpContext.User.RetrieveId();
+        return Ok(await _roomService.GetRoomsWithUsersByUserId(currentUserId));
+    }
+ 
+    [Authorize]
+    [HttpGet(ChatControllerWebRoutes.GetMessagesFromRoom)]
     public async Task<ActionResult<List<AnnotatedMessageDto>>> GetMessages([FromRoute] int roomId)
     {
         var currentUserId = _httpContext.User.RetrieveId();
@@ -38,7 +48,7 @@ public class RoomController : Controller
     }
 
     [Authorize]
-    [HttpPost(RoomControllerWebRoutes.CreateRoom)]
+    [HttpPost(ChatControllerWebRoutes.CreateRoom)]
     public async Task<ActionResult> Create([FromBody] RoomCreateRequestDto dto)
     {
         var currentUserId = _httpContext.User.RetrieveId();
@@ -47,7 +57,7 @@ public class RoomController : Controller
     }
     
     [Authorize]
-    [HttpPost(RoomControllerWebRoutes.SendMessageToRoom)]
+    [HttpPost(ChatControllerWebRoutes.SendMessageToRoom)]
     public async Task<ActionResult<MessageDto>> SendMessage([FromRoute] int roomId, [FromBody] SendMessageRequestDto dto)
     {
         var userId = _httpContext.User.RetrieveId();

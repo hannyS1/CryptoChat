@@ -1,17 +1,47 @@
-﻿@inherits LayoutComponentBase
+﻿@using CryptoChat.Frontend.Services
+@using CryptoChat.Api.Contracts.Data
+@inherits LayoutComponentBase
+
+@inject AuthenticateService AuthenticateService;
 
 <div class="page">
     <div class="sidebar">
         <NavMenu/>
     </div>
 
+    
     <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+        @if (!_isAuthenticated)
+        {
+            <div class="top-row px-4">
+                <NavLink href="auth">Войти</NavLink>
+            </div>
+            <article class="content px-4">
+                @Body
+            </article>
+        }
+        else
+        {
+            <div class="top-row px-4">
+                @currentUser?.Name <NavLink href="auth"> Сменить пользователя</NavLink>
+            </div>
+            <article class="content px-4">
+                @Body
+            </article>
+        }
+        
     </main>
 </div>
+
+@code{
+    private bool _isAuthenticated;
+    private UserDto currentUser; 
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isAuthenticated = await AuthenticateService.IsAuthenticated();
+        if (_isAuthenticated)
+            currentUser = await AuthenticateService.GetMyselfInfoFromStorage();
+    }
+
+}
