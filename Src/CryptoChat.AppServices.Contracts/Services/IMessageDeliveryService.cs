@@ -4,5 +4,5 @@ namespace CryptoChat.AppServices.Contracts.Services;
 
 public interface IMessageDeliveryService
 {
-    public Task<MessageDto> SendMessage(SendMessageRequestDto sendMessageRequestDto, int userId, int roomId);
+    public Task<MessageDto> SendMessage(SendMessageRequestDto sendMessageRequestDto, int fromUserId, int roomId);
 }
