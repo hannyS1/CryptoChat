@@ -14,9 +14,9 @@ GET {{backendAddr}}/api/users/me
 Authorization: Bearer {{user3Token}}
 ###
 
-POST {{backendAddr}}/api/chat/rooms
+POST {{backendAddr}}/api/chat/rooms/create-room
 Content-Type: application/json
-Authorization: Bearer {{user3Token}}
+Authorization: Bearer {{user2Token}}
 
 {
   "userId": 3

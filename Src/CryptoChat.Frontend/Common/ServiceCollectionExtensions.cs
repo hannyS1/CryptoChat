@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<AuthTokenProvider>();
         services.AddScoped<WarehouseService>();
         services.AddScoped<FeatureToggleService>();
+        services.AddScoped<ChatService>();
         return services;
     }
 }

@@ -21,6 +21,7 @@
       <ProjectReference Include="..\CryptoChat.AppServices\CryptoChat.AppServices.csproj" />
       <ProjectReference Include="..\CryptoChat.Common\CryptoChat.Common.csproj" />
       <ProjectReference Include="..\CryptoChat.Database\CryptoChat.Database.csproj" />
+      <ProjectReference Include="..\WarehouseManagement.ChatModule\WarehouseManagement.ChatModule.csproj" />
       <ProjectReference Include="..\WarehouseManagement.Common\WarehouseManagement.Common.csproj" />
     </ItemGroup>
 
@@ -36,9 +37,6 @@
 
 
     <ItemGroup>
-      <Reference Include="WarehouseManagement.ChatModule">
-        <HintPath>..\..\Libs\WarehouseManagement.ChatModule.dll</HintPath>
-      </Reference>
       <Reference Include="WarehouseManagement.FeatureToggleModule">
         <HintPath>..\..\Libs\WarehouseManagement.FeatureToggleModule.dll</HintPath>
       </Reference>
